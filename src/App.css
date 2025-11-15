@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  background: #8758ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ */
+
+ body {
+  background: #8758ff;
+  display: flex;
+  flex-direction: column; /* organiza de arriba hacia abajo */
+  align-items: center;
+  justify-content: flex-start; /* coloca todo arriba */
+  min-height: 100vh;
+  padding-top: 40px; /* espacio superior opcional */
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+/* Contenedor principal */
+.TodoWrapper {
+  background: #1a1a40;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.TodoForm {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* 👈 evita que baje de línea */
+}
+
+.TodoForm .todo-input {
+  width: 250px;
+}
+
+.TodoForm .react-datepicker-wrapper {
+  width: 200px;
+}
+
+.TodoForm .todo-btn {
+  white-space: nowrap; /* 👈 evita que se parta el texto del botón */
+}
+.todo-input {
+  outline: none;
+  background: none;
+  border: 1px solid #8758ff;
+  padding: 0.5rem 1rem;
+  width: 250px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.todo-input::placeholder {
+  color: #ffffff4d;
+}
+
+.todo-btn {
+  background: #8758ff;
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.todo-btn:hover {
+  background: #a178ff;
+}
+
+/* Cada tarea */
+.Todo {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 🔹 texto + íconos */
+  align-items: center;
+  background: #8758ff;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.Todo:hover {
+  background: #9b6bff;
+  transform: scale(1.01);
+}
+
+/* Información de la tarea */
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* Título */
+.Todo p {
+  flex: 1;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Fecha */
+.todo-date {
+  font-size: 0.8rem;
+  color: #e8d9ff;
+}
+
+/* Íconos */
+.todo-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-icons svg {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.todo-icons svg:hover {
+  transform: scale(1.2);
+  color: #fffbe0;
+}
+
+/* Estado */
+.completed {
+  color: #d3c0ff;
+  text-decoration: line-through;
+}
+
+/* Select de orden */
+.sort-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  color: #fff;
+  gap: 0.5rem;
+}
+
+.sort-select {
+  background: #1a1a40;
+  border: 1px solid #8758ff;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #8758ff;
+}
+
+
+/* === Tabla de tareas === */
+
+.todo-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto auto; /* Nombre, fecha, editar, eliminar */
+  align-items: center;
+  background-color: #8758ff;
+  color: #fff;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+  padding: 0.7rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Celda individual */
+.todo-cell {
+  padding: 0.4rem 0.6rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.3); /* línea vertical */
+}
+
+/* Quita borde al último elemento (eliminar) */
+.todo-cell:last-child {
+  border-right: none;
+}
+
+/* Nombre */
+.todo-name {
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Fecha */
+.todo-date {
+  font-size: 0.9rem;
+  color: #f0eaff;
+}
+
+/* Acciones */
+.todo-action {
+  text-align: center;
+}
+
+.todo-action svg {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.todo-action svg:hover {
+  transform: scale(1.2);
+  color: #fffbe0;
+}
+
+/* Estado completado */
+.completed {
+  color: #d3c0ff;
+  text-decoration: line-through;
+}
+
+/* === Responsivo === */
+@media (max-width: 600px) {
+  .todo-row {
+    grid-template-columns: 1fr 1fr; /* En pantallas pequeñas: nombre y fecha arriba, íconos abajo */
+    grid-template-areas:
+      "name date"
+      "edit delete";
+    text-align: left;
+  }
+
+  .todo-name {
+    grid-area: name;
+  }
+
+  .todo-date {
+    grid-area: date;
+    text-align: right;
+  }
+
+  .todo-action:nth-child(3) {
+    grid-area: edit;
+  }
+
+  .todo-action:nth-child(4) {
+    grid-area: delete;
+    text-align: right;
+  }
+}
