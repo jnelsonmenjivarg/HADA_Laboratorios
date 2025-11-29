@@ -82,7 +82,7 @@ h1 {
 }
 
 .todo-btn {
-  background: #8758ff;
+  background: #58ff98;
   color: #fff;
   border: none;
   padding: 0.55rem 1.2rem;
@@ -92,7 +92,7 @@ h1 {
 }
 
 .todo-btn:hover {
-  background: #a178ff;
+  background: #cbff78;
 }
 
 /* Cada tarea */
